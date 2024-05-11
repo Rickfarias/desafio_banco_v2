@@ -1,4 +1,4 @@
-import textwrap
+
 
 def menu():
     menu = """\n
@@ -11,7 +11,7 @@ def menu():
         [6]\tListar contas
         [0]\tSair
     => """
-    return input(textwrap.dedent(menu))
+    return input((menu))
 
 def depositar(saldo, valor, extrato, /):
     if valor > 0:
@@ -86,7 +86,8 @@ def criar_conta(agencia, numero_conta, usuarios):
         print("\n=== Conta criada com sucesso! ===")
         return {"agencia": agencia, "numero_conta": numero_conta, "usuario": usuario}
     
-    print("\n@@@ Usuário não encontrado, fluxo de criação de conta encerrado! @@@")
+    else:
+        print("\n@@@ Usuário não encontrado, fluxo de criação de conta encerrado! @@@")
 
 
 def listar_contas(contas):
@@ -97,7 +98,7 @@ def listar_contas(contas):
             Titular:\t{conta['usuario']['nome']}
         """
         print("=" * 100)
-        print(textwrap.dedent(linha))
+        print((linha))
 
 
 def main():
